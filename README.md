@@ -25,14 +25,8 @@ The project involves different cloud technologies, such as Redshift, pySpark and
     └── etl.py           # Reads data from S3, processes that data using Spark, and writes them back to S3
 
 ## Project implementation details
-The details around the data exploration, ETL(Extract-Transform-Load) design, assumptions are located 
+The details around the data exploration, ETL (Extract-Transform-Load) design, data model, assumptions are located 
 in the file **Capstone_Project.ipynb**
-
-## Data Model
-
-
-## Data Pipeline
-
 
 ## How to run
 
