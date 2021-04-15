@@ -2,7 +2,7 @@
 
 ### Project Motivation
 Many people travel to USA for different purposes, the TSA (Transport Security Administration)
-is interested to know in depth the immigration patterns in a monthly basis based on different
+is interested to know in depth the immigration patterns in a monthly basis by the airport based on different
 factors, such as immigration data, temperature, US Demographics and Airport Codes.
 
 This project provides a data warehouse, which will allow different TSA members to access 
@@ -25,7 +25,7 @@ The project involves different cloud technologies, such as Redshift, pySpark and
     └── etl.py           # Reads data from S3, processes that data using Spark, and writes them back to S3
 
 ## Project implementation details
-The details around the data exploration, ETL (Extract-Transform-Load) design, data model, assumptions are located 
+The details around the data exploration, datasets, ETL (Extract-Transform-Load) design, data model, assumptions are located 
 in the file **Capstone_Project.ipynb**
 
 ## How to run
@@ -34,6 +34,8 @@ in the file **Capstone_Project.ipynb**
 2. **Apache AirFlow 2.0.1 has an error in the official documentation, and I created a video to fix it and 
 share it with the world (Sharing is caring) [FIX THAT BUG](https://youtu.be/RVKRtgDIh8A))**
 3. Clone the repository and all the datasets should be in the **dags** folder (It will be loaded in the docker volume based on the official Apache AirFlow 2.0.1 yaml file)
+
+4. Configure your connector to your Redshift, RDS or local database instance
 4. Find the dag for this project and run it.
 
 ##### Side notes: Apache AirFlow 2.0.1 yaml file (it is also in step 2)
@@ -43,7 +45,7 @@ curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.0.1/docker-compose.y
 
 ## Requirements
 
-- AWS Redshift Configured
+- AWS Redshift Configured or AWS RDS Postgres Database or a local database (Some SQL queries may need to be adapted to support this case) 
 - Docker -> Apache AirFlow (2.0.1) with the connector configuration
 - Python 3
 
