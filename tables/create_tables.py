@@ -26,8 +26,8 @@ def main():
                             .format(*config['CLUSTER'].values()))
 
     cur = conn.cursor()
-    execute_queries(cur, conn, drop_table_queries) # drop tables
-    execute_queries(cur, conn, create_table_queries) # create tables
+    execute_queries(cur, conn, drop_table_queries)
+    execute_queries(cur, conn, create_table_queries)
     conn.close()
 
 

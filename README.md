@@ -22,7 +22,7 @@ The project involves different cloud technologies, such as Redshift, pySpark and
     .
     │
     ├── dags     
-    │   ├── immigration_etl_gad.py                # Contains the main ETL dag
+    │   ├── immigration_etl_dag.py                # Contains the main ETL dag
     │   ├── dwh.cfg                               # Credentials config file
     │   └── datasets 
     │       ├── README.md                         # Specify which datasets whould be downloaded
@@ -40,9 +40,9 @@ The project involves different cloud technologies, such as Redshift, pySpark and
     │   │
     │   ├── operators        
     │   │   ├── __init__.py
-    │   │   ├── copy_redshift.py                  # Operator to load data from S3 into Redshift
-    │   │   ├── data_quality.py                   # Operator to perform some data quality checks
-    │   │   └── sas_value_redshift.py             #       
+    │   │   ├── copy_redshift.py                  # Custom Operator to load data from S3 into Redshift
+    │   │   ├── data_quality.py                   # Custom Operator to perform some data quality checks
+    │   │   └── sas_value_redshift.py             # Custom Operator for extracting data from SAS source code      
     │   └── __init__.py
     │    
     ├── tables                   
@@ -54,6 +54,7 @@ The project involves different cloud technologies, such as Redshift, pySpark and
     ├── Capstone_Proyect.html                     # Project analysis, development and design (HTML)
     ├── docker-compose.yaml                       # Apache AirFlow docker yaml file
     ├── LICENSE 
+    ├── notebook_images                           # Diagrams and support images
     └── README.md                                 
     
     
@@ -63,20 +64,24 @@ The project involves different cloud technologies, such as Redshift, pySpark and
 The details around the data exploration, datasets, ETL (Extract-Transform-Load) design, data model, assumptions are located 
 in the file **Capstone_Project.ipynb**
 
-## How to run
+## How to run the ETL
 
-1. Please follow the instructions to run Apache Airflow in a Docker container [Instructions](https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html))
-2. **Apache AirFlow 2.0.1 has an error in the official documentation, and I created a video to fix it and 
+1. Clone the repository and fill the credential information in tables/dwh.cfg and dags/dw.cfg
+2. Read the file dags/datasets/README.md (It will tell you about the datasets needed)
+3. Upload those datasets in a S3 bucket
+4. Please follow the instructions to run Apache Airflow in a Docker container [Instructions](https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html))
+5. **Apache AirFlow 2.0.1 has an error in the official documentation, and I created a video to fix it and 
 share it with the world (Sharing is caring) [FIX THAT BUG](https://youtu.be/RVKRtgDIh8A))**
-3. Clone the repository and all the datasets should be in the **dags** folder (It will be loaded in the docker volume based on the official Apache AirFlow 2.0.1 yaml file)
+6. Go to the mian folder project and is Apache AirFlow is not running do:
 
-4. Configure your connector to your Redshift, RDS or local database instance
-4. Find the dag for this project and run it.
-
-##### Side notes: Apache AirFlow 2.0.1 yaml file (it is also in step 2)
 ```
-curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.0.1/docker-compose.yaml'
+docker compose up  (Start the services)
+docker compose down (Stop the services)
 ```
+7. Configure the connector in Apache Airflow to be able to see Amazon Redshift [Detailed Steps](https://www.progress.com/tutorials/jdbc/connect-to-redshift-salesforce-and-others-from-apache-airflow)
+8. You should be able to see the DAG -> immigration_etl_dag in ApacheAirflow
+9. **Run the script tables/create_tables.py**
+10. Finally, in Apache AirFlow you can execute the dag and wait for the results.
 
 ## Requirements
 
