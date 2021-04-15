@@ -70,7 +70,7 @@ in the file **Capstone_Project.ipynb**
 4. Please follow the instructions to run Apache Airflow in a Docker container [Instructions](https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html))
 5. **Apache AirFlow 2.0.1 has an error in the official documentation, and I created a video to fix it and 
 share it with the world (Sharing is caring) [FIX THAT BUG](https://youtu.be/RVKRtgDIh8A))**
-6. Go to the mian folder project and is Apache AirFlow is not running do:
+6. Go to the main folder project and is Apache AirFlow is not running do:
 
 ```
 docker compose up  (Start the services)
