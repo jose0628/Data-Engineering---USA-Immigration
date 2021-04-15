@@ -18,7 +18,6 @@ The project involves different cloud technologies, such as Redshift, pySpark and
 - U.S. City Demographic Data: This data comes from OpenSoft. ([Source](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/))
 - Airport Code Table: This is a simple table of airport codes and corresponding cities. ([Source](https://datahub.io/core/airport-codes#data))
 
-
 ## Project Structure
     .
     ├── dl_template.cfg  # ERM cluster credentials, it should be rename it as dl.cfg
