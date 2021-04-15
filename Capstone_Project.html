@@ -15177,7 +15177,7 @@ dtype: float64</pre>
 <h4 id="Mapping-Out-Data-Pipelines-and-Data-Quality-checks">Mapping Out Data Pipelines and Data Quality checks<a class="anchor-link" href="#Mapping-Out-Data-Pipelines-and-Data-Quality-checks">&#182;</a></h4><p>The DAG shown in the graph shows the nodes and how the data and tables are being loaded with the data. In our particular case every table (facts or dimentions)
 has a data check of the type count.</p>
 <p><img src="notebook_images/dag.png" width="950" height="950"></p>
-<h4 id="Here-some-wuality-checks-examples-in-dimensional-tables.">Here some wuality checks examples in dimensional tables.<a class="anchor-link" href="#Here-some-wuality-checks-examples-in-dimensional-tables.">&#182;</a></h4><p><code>{'name': 'i94cit_res',
+<h4 id="Here-some-quality-checks-examples-in-dimensional-tables.">Here some quality checks examples in dimensional tables.<a class="anchor-link" href="#Here-some-quality-checks-examples-in-dimensional-tables.">&#182;</a></h4><p><code>{'name': 'i94cit_res',
      'value': 'i94cntyl',
      'columns': ['code', 'country'],
      'dq_checks': [{'check_sql': "SELECT COUNT(*) FROM i94cit_res WHERE code is null", 'expected_result': 0}]
@@ -15261,7 +15261,7 @@ on the data freshness and datasets that are not updated in realtime, it would be
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="k">import</span> <span class="n">call</span>
@@ -15278,7 +15278,7 @@ on the data freshness and datasets that are not updated in realtime, it would be
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
