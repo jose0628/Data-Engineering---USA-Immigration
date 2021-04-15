@@ -58,8 +58,6 @@ The project involves different cloud technologies, such as Redshift, pySpark and
     └── README.md                                 
     
     
-
-
 ## Project implementation details
 The details around the data exploration, datasets, ETL (Extract-Transform-Load) design, data model, assumptions are located 
 in the file **Capstone_Project.ipynb**
