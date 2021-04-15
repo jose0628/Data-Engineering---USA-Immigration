@@ -23,7 +23,8 @@ default_args = {
 
 dag = DAG('immigration_etl_dag',
           default_args=default_args,
-          description='Load and transform data from datasources with Airflow'
+          description='Load and transform data from data sources with Airflow',
+          schedule_interval='0 0 1 * *' #monthly
           )
 
 start_operator = DummyOperator(task_id='Start_execution', dag=dag)
