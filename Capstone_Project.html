@@ -13142,7 +13142,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
@@ -13194,7 +13194,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span>\
@@ -13209,7 +13209,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">imm_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;dags/datasets/sas_data&quot;</span><span class="p">)</span>
@@ -13238,7 +13238,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13666,7 +13666,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">imm_data</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
@@ -13733,7 +13733,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_imm</span> <span class="o">=</span> <span class="n">imm_data</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
@@ -13804,7 +13804,7 @@ memory usage: 3.4+ KB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_imm_all</span> <span class="o">=</span> <span class="n">imm_data</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
@@ -13821,7 +13821,7 @@ memory usage: 3.4+ KB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -13888,7 +13888,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sas_program_file_value_parser</span><span class="p">(</span><span class="n">sas_source_file</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
@@ -13939,14 +13939,14 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i94cit_res</span> <span class="o">=</span> <span class="n">sas_program_file_value_parser</span><span class="p">(</span><span class="s1">&#39;I94_SAS_Labels_Descriptions.SAS&#39;</span><span class="p">,</span> <span class="s1">&#39;i94cntyl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">])</span>
-<span class="n">i94port</span> <span class="o">=</span> <span class="n">sas_program_file_value_parser</span><span class="p">(</span><span class="s1">&#39;I94_SAS_Labels_Descriptions.SAS&#39;</span><span class="p">,</span> <span class="s1">&#39;i94prtl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">])</span>
-<span class="n">i94mode</span> <span class="o">=</span> <span class="n">sas_program_file_value_parser</span><span class="p">(</span><span class="s1">&#39;I94_SAS_Labels_Descriptions.SAS&#39;</span><span class="p">,</span> <span class="s1">&#39;i94model&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;mode&#39;</span><span class="p">])</span>
-<span class="n">i94addr</span> <span class="o">=</span> <span class="n">sas_program_file_value_parser</span><span class="p">(</span><span class="s1">&#39;I94_SAS_Labels_Descriptions.SAS&#39;</span><span class="p">,</span> <span class="s1">&#39;i94addrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;addr&#39;</span><span class="p">])</span>
-<span class="n">i94visa</span> <span class="o">=</span> <span class="n">sas_program_file_value_parser</span><span class="p">(</span><span class="s1">&#39;I94_SAS_Labels_Descriptions.SAS&#39;</span><span class="p">,</span> <span class="s1">&#39;I94VISA&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i94cit_res</span> <span class="o">=</span> <span class="n">sas_program_file_value_parser</span><span class="p">(</span><span class="s1">&#39;dags/datasets/I94_SAS_Labels_Descriptions.SAS&#39;</span><span class="p">,</span> <span class="s1">&#39;i94cntyl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">])</span>
+<span class="n">i94port</span> <span class="o">=</span> <span class="n">sas_program_file_value_parser</span><span class="p">(</span><span class="s1">&#39;dags/datasets/I94_SAS_Labels_Descriptions.SAS&#39;</span><span class="p">,</span> <span class="s1">&#39;i94prtl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">])</span>
+<span class="n">i94mode</span> <span class="o">=</span> <span class="n">sas_program_file_value_parser</span><span class="p">(</span><span class="s1">&#39;dags/datasets/I94_SAS_Labels_Descriptions.SAS&#39;</span><span class="p">,</span> <span class="s1">&#39;i94model&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;mode&#39;</span><span class="p">])</span>
+<span class="n">i94addr</span> <span class="o">=</span> <span class="n">sas_program_file_value_parser</span><span class="p">(</span><span class="s1">&#39;dags/datasets/I94_SAS_Labels_Descriptions.SAS&#39;</span><span class="p">,</span> <span class="s1">&#39;i94addrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;addr&#39;</span><span class="p">])</span>
+<span class="n">i94visa</span> <span class="o">=</span> <span class="n">sas_program_file_value_parser</span><span class="p">(</span><span class="s1">&#39;dags/datasets/I94_SAS_Labels_Descriptions.SAS&#39;</span><span class="p">,</span> <span class="s1">&#39;I94VISA&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -14190,7 +14190,7 @@ Longitude False
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_temp_data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -14577,7 +14577,7 @@ memory usage: 271.1+ KB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_city_dem_data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">df_city_dem_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -14593,7 +14593,7 @@ memory usage: 271.1+ KB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -14636,7 +14636,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_airport_code_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dags/datasets/airport-codes_csv.csv&#39;</span><span class="p">)</span>
@@ -14653,7 +14653,7 @@ dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -14854,7 +14854,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_airport_code_data</span><span class="p">:</span>
@@ -14904,7 +14904,7 @@ coordinates False
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_airport_code_data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -14958,7 +14958,7 @@ memory usage: 5.0+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_airport_code_data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">df_airport_code_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -14974,7 +14974,7 @@ memory usage: 5.0+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[32]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -15051,10 +15051,9 @@ dtype: float64</pre>
 </ul>
 <h4 id="Considerations-&amp;-Notes">Considerations &amp; Notes<a class="anchor-link" href="#Considerations-&amp;-Notes">&#182;</a></h4><ul>
 <li>The following tables are distributed across all nodes(DISTSTYLE ALL): i94cit_res, i94port, i94mode, i94addr, i94visa, us_cities_demographics</li>
-<li>Redundancy -&gt; DISTSTYLE ALL will copy the data of your table to all nodes - to mitigate data transfer requirement across nodes. You can find out the size of your table and Redshift nodes available size, if you can afford to copy table multiple times per node. 
-#### Conceptual Data Model Diagram</li>
+<li>Redundancy -&gt; DISTSTYLE ALL will copy the data of your table to all nodes - to mitigate data transfer requirement across nodes. You can find out the size of your table and Redshift nodes available size, if you can afford to copy table multiple times per node. </li>
 </ul>
-<p><img src="notebook_images/dag.png" width="950" height="950"></p>
+<h4 id="Conceptual-Data-Model-Diagram">Conceptual Data Model Diagram<a class="anchor-link" href="#Conceptual-Data-Model-Diagram">&#182;</a></h4><p><img src="notebook_images/model.png" width="950" height="950"></p>
 <h4 id="Table-Definitions-(Details)">Table Definitions (Details)<a class="anchor-link" href="#Table-Definitions-(Details)">&#182;</a></h4><div class="highlight"><pre><span></span><span class="n">create_table_immigration</span> <span class="o">=</span> <span class="ss">&quot;&quot;&quot;</span>
 <span class="ss">CREATE TABLE IF NOT EXISTS public.immigration (</span>
 <span class="ss">    cicid FLOAT PRIMARY KEY,</span>
@@ -15262,7 +15261,7 @@ on the data freshness and datasets that are not updated in realtime, it would be
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="k">import</span> <span class="n">call</span>
@@ -15279,7 +15278,7 @@ on the data freshness and datasets that are not updated in realtime, it would be
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[2]:</div>
+    <div class="prompt output_prompt">Out[36]:</div>
 
 
 
@@ -15290,6 +15289,19 @@ on the data freshness and datasets that are not updated in realtime, it would be
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
 </div>
 </div>
 
