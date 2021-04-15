@@ -25,7 +25,7 @@ default_args = {
 }
 
 
-dag = DAG('etl_dag',
+dag = DAG('immigration_etl_dag',
           default_args=default_args,
           description='Load and transform data from datasources with Airflow'
           )
