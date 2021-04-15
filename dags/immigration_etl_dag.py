@@ -1,19 +1,15 @@
-import os
 import configparser
 from datetime import datetime, timedelta
 from airflow import DAG
-from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators import CopyToRedshiftOperator, SASValueToRedshiftOperator, DataQualityOperator
+from airflow.operators.dummy_operator import DummyOperator
 from helpers import sas_source_code_tables_data, copy_s3_bucket_keys
 
-
 config = configparser.ConfigParser()
-config.read('/home/workspace/airflow/dags/dwh.cfg')
+config.read('dwh.cfg')
 
-
-REDSHIFT_ARN = config.get("CLUSTER","ARN")
-S3_BUCKET = config.get("S3",'BUCKET')
-
+REDSHIFT_ARN = config.get("CLUSTER", "ARN")
+S3_BUCKET = config.get("S3", 'BUCKET')
 
 default_args = {
     'owner': 'jose_mancera',
@@ -25,16 +21,13 @@ default_args = {
     'email_on_retry': False
 }
 
-
 dag = DAG('immigration_etl_dag',
           default_args=default_args,
           description='Load and transform data from datasources with Airflow'
           )
 
-start_operator = DummyOperator(task_id='Start_execution',  dag=dag)
-
-end_operator = DummyOperator(task_id='Stop_execution',  dag=dag)
-
+start_operator = DummyOperator(task_id='Start_execution', dag=dag)
+end_operator = DummyOperator(task_id='Stop_execution', dag=dag)
 
 for table in copy_s3_bucket_keys:
     copy_table_from_s3 = CopyToRedshiftOperator(
@@ -61,7 +54,6 @@ for table in copy_s3_bucket_keys:
     start_operator >> copy_table_from_s3
     copy_table_from_s3 >> quality_check_table
     quality_check_table >> end_operator
-
 
 for table in sas_source_code_tables_data:
     load_table_from_sas_source_code = SASValueToRedshiftOperator(
