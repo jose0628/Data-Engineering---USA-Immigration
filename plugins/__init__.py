@@ -1,9 +1,19 @@
-from operators.copy_redshift import CopyToRedshiftOperator
-from operators.sas_value_redshift import SASValueToRedshiftOperator
-from operators.data_quality import DataQualityOperator
+from __future__ import division, absolute_import, print_function
 
-__all__ = [
-    'CopyToRedshiftOperator',
-    'DataQualityOperator',
-    'SASValueToRedshiftOperator'
-]
+from airflow.plugins_manager import AirflowPlugin
+
+import operators
+import helpers
+
+# Defining the plugin class
+class UdacityPlugin(AirflowPlugin):
+    name = "udacity_plugin"
+    operators = [
+        operators.CopyToRedshiftOperator,
+        operators.SASValueToRedshiftOperator,
+        operators.DataQualityOperator
+    ]
+    helpers = [
+        helpers.sas_source_code_tables_data,
+        helpers.copy_s3_bucket_keys
+    ]
