@@ -20,8 +20,44 @@ The project involves different cloud technologies, such as Redshift, pySpark and
 
 ## Project Structure
     .
-    ├── dl_template.cfg  # ERM cluster credentials, it should be rename it as dl.cfg
-    └── etl.py           # Reads data from S3, processes that data using Spark, and writes them back to S3
+    │
+    ├── dags     
+    │   ├── immigration_etl_gad.py                # Contains the main ETL dag
+    │   ├── dwh.cfg                               # Credentials config file
+    │   └── datasets 
+    │       ├── README.md                         # Specify which datasets whould be downloaded
+    │       ├── sas_data                          # Folder with SAS files please reffer to README.md
+    │       ├── airport-codes_csv.csv             # airport codes please reffer to README.md
+    │       ├── GlobalLandTemperatureByCity.csv   # temperature dataset please reffer to README.md
+    │       ├── I94_SAS_Labels_Description.SAS    # I94 SAS labels please reffer to README.md
+    │       ├── immigration_data_sample.csv       # Immigration data please reffer to README.md
+    │       └── us-cities-demographics.csv        # US demographics please reffer to README.md
+    │   
+    ├── plugins                   
+    │   ├── helpers
+    │   │   ├── __init__.py
+    │   │   └── table_configs.py                  # Table tests and S3 storage buckets
+    │   │
+    │   ├── operators        
+    │   │   ├── __init__.py
+    │   │   ├── copy_redshift.py                  # Operator to load data from S3 into Redshift
+    │   │   ├── data_quality.py                   # Operator to perform some data quality checks
+    │   │   └── sas_value_redshift.py             #       
+    │   └── __init__.py
+    │    
+    ├── tables                   
+    │   ├── create_tables.py                      # create tables script
+    │   ├── sql_queries.py                        # RAW queries to create the project tables
+    │   └── dwh.cfg                               # Credentials config file
+    │
+    ├── Capstone_Proyect.ipynb                    # Project analysis, developmet and design (Jupyter Noteboook)
+    ├── Capstone_Proyect.html                     # Project analysis, development and design (HTML)
+    ├── docker-compose.yaml                       # Apache AirFlow docker yaml file
+    ├── LICENSE 
+    └── README.md                                 
+    
+    
+
 
 ## Project implementation details
 The details around the data exploration, datasets, ETL (Extract-Transform-Load) design, data model, assumptions are located 

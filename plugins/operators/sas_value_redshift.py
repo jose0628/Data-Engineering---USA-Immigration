@@ -10,8 +10,7 @@ from airflow.utils.decorators import apply_defaults
 
 class SASValueToRedshiftOperator(BaseOperator):
     """Custom Operator for extracting data from SAS source code.
-    Attributes:
-        ui_color (str): color code for task in Airflow UI.
+    :param ui_color (str): color code for task in Airflow UI.
     """
     ui_color = '#358150'
 
@@ -26,16 +25,14 @@ class SASValueToRedshiftOperator(BaseOperator):
                  columns="",
                  *args, **kwargs):
         """Extracts label mappings from SAS source code and store as Redshift table
-        Args:
-            aws_credentials_id (str): Airflow connection ID for AWS key and secret.
-            redshift_conn_id (str): Airflow connection ID for redshift database.
-            table (str): Name of table to load data to.
-            s3_bucket (str): S3 Bucket Name Where SAS source code is store.
-            s3_key (str): S3 Key Name for SAS source code.
-            sas_value (str): value to search for in sas file for extraction of data.
-            columns (list): resulting data column names.
-        Returns:
-            None
+
+        :param aws_credentials_id (str): Airflow connection ID for AWS key and secret.
+        :param redshift_conn_id (str): Airflow connection ID for redshift database.
+        :param table (str): Name of table to load data to.
+        :param s3_bucket (str): S3 Bucket Name Where SAS source code is store.
+        :param s3_key (str): S3 Key Name for SAS source code.
+        :param sas_value (str): value to search for in sas file for extraction of data.
+        :param columns (list): resulting data column names.
         """
         super(SASValueToRedshiftOperator, self).__init__(*args, **kwargs)
         self.aws_credentials_id = aws_credentials_id
@@ -48,10 +45,7 @@ class SASValueToRedshiftOperator(BaseOperator):
 
     def execute(self, context):
         """Executes task for staging to redshift.
-        Args:
-            context (:obj:`dict`): Dict with values to apply on content.
-        Returns:
-            None
+        :param context (:obj:`dict`): Dict with values to apply on content
         """
         s3 = S3Hook(self.aws_credentials_id)
 
@@ -104,7 +98,3 @@ class SASValueToRedshiftOperator(BaseOperator):
         self.log.info('Writing result to table {}'.format(self.table))
         df.to_sql(self.table, conn, index=False, if_exists='append')
         conn.dispose()
-
-
-
-
